@@ -88,50 +88,46 @@
      <img src={{item.link}}>
 			</a>
     </li>
-<!--
-       <li>
-      <div class="image_title">
-        <a href="#">Wedding 2</a>
-      </div>
-      <a href="#">
-     <img src="http://farm8.staticflickr.com/7435/10067483716_2b6a593ca8.jpg">
-			</a>
-    </li>
-          <li>
-      <div class="image_title">
-        <a href="#">Wedding 3</a>
-      </div>
-      <a href="#">
-     <img src="http://farm8.staticflickr.com/7310/10065811936_8debcccb71.jpg">
-			</a>
-    </li>
-             <li>
-      <div class="image_title">
-        <a href="#">Wedding 4</a>
-      </div>
-      <a href="#">
-     <img src="http://farm4.staticflickr.com/3715/10065692306_705364fa01.jpg">
-			</a>
-    </li>
-                <li>
-      <div class="image_title">
-        <a href="#">Wedding 5</a>
-      </div>
-      <a href="#">
-     <img src="http://farm4.staticflickr.com/3667/9759830873_7474bd9fc2.jpg">
-			</a>
-    </li>
--->
+
   </ul>
 </div>
 
-    <section class="publicaciones-blog-home">
+    <section class="publicaciones-blog-home" ng-hide="searchSection">
       <div class="container">
         <div class="">
           <h2></h2>
           <div class="row-page row" >
-            
-            <div class="col-page col-sm-4 col-md-3" ng-repeat="x in content track by $index">
+              <div class="col-lg-3" >
+              <div class="input-group custom-search-form" >
+                  <input type="text" class="form-control" ng-model="search">
+                  <span class="input-group-btn">
+<!--
+                  <select ng-model="sort" >
+                      <option selected="selected" disabled value="">Search</option>
+                      <option >name</option>
+                      <option >price</option>   
+                  </select>
+                  <input type="checkbox" ng-model="rev">
+-->
+                  <button class="btn btn-primary" type="button">
+                  <span class="glyphicon glyphicon-search"></span>
+                 </button>
+                 </span>
+               </div><!-- /input-group -->
+               <div id="sort" >
+               <select ng-model="sort" name="state" class="ddList">
+                      <option selected="selected" disabled value="">Search</option>
+                      <option class="lt">name</option>
+                      <option class="lt">price</option>   
+                  </select>
+                  <input type="checkbox" ng-model="rev">
+                  </div>
+            </div> <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="col-page col-sm-4 col-md-3" ng-repeat="x in content|filter:search|orderBy:sort:rev">
               <a href=""  class="fondo-publicacion-home">
                 <div class="img-publicacion-home">
                   <img class="img-responsive" src="{{x.image}}">

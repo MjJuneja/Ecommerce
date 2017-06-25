@@ -611,4 +611,14 @@ body {
   font-size:16px;
 }
 
+.custom-search-form{
+    margin-top:5px;
+}
 
+select { width: 400px; text-align:center; }
+select .lt { text-align:center; }
+select { text-indent: 5px; }
+
+#sort{
+    text-align: center;
+}

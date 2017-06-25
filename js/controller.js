@@ -1,11 +1,13 @@
 app.controller("mycntrl",($scope,$rootScope,myfactory)=>{
    $scope.menus = myfactory.menu; 
+   $scope.searchSection = true;    
    $scope.img = myfactory.img;
    $scope.sideMenu = myfactory.sideMenu; 
    $scope.Total=0;
    $scope.slider = myfactory.accordian;    
   $scope.showContent = (x)=>{
-      console.log(x);
+       $scope.searchSection = false;    
+//      console.log(x);
         if(x=="shoeShow"){
         $rootScope.content = myfactory.shoeJSON;
         $rootScope.JSON = "shoeJSON";    
@@ -23,8 +25,8 @@ app.controller("mycntrl",($scope,$rootScope,myfactory)=>{
       }
   };
     $scope.addToCart=(id,JSON)=>{
-       console.log(JSON);
-//       
+//       console.log(JSON);
+       
          myfactory[JSON].forEach((x)=>{
             if(id==x.id){
                 myfactory.cart.push(x);
@@ -34,7 +36,7 @@ app.controller("mycntrl",($scope,$rootScope,myfactory)=>{
          });
         
         $scope.Total = myfactory.ComputeTotal(myfactory.cart);    
-        console.log($scope.Total);
+//        console.log($scope.Total);
     }
 });
 
